@@ -1,0 +1,73 @@
+{% extends 'base1.html' %}
+{% block content %}
+
+<h1 style="font-family:Perpetua; text-align:center; color: #ffebcd">FILL THE FORM</h1><br><br>
+
+<form action="forms/print" method="post">
+    {% csrf_token %}
+
+    <label class="u" style="color: #ffebcd"><h4><b>Name</b></h4></label>
+    <input type="text" name="name"><br>
+    <label class="u" style="color: #ffebcd"><h4><b>Date of Birth</b></h4></label>
+    <input type="date" name="dob"><br>
+    <label class="u" style="color: #ffebcd"><h4><b>Age</b></h4></label>
+    <input type="number" name="age"><br>
+  <div>
+    <label class="u" style="color: #ffebcd"><h4><b>Gender</b></h4></label>&nbsp;&nbsp;
+    <label class="u" style="color: #ffebcd"><h5><b>Male</b></h5></label>
+    <input type="radio" name="gender">
+    <label class="u" style="color: #ffebcd"><h5><b>Female</b></h5></label>
+    <input type="radio" name="gender">
+  </div>
+    <label class="u" style="color: #ffebcd"><h4><b>Phone number</b></h4></label>
+    <input type="text" name="number"><br>
+    <label class="u" style="color: #ffebcd"><h4><b>Email id</b></h4></label>
+    <input type="email" name="mail"><br>
+    <label class="u" style="color: #ffebcd"><h4><b>Branch</b></h4></label>
+    <select name="branch" class="form-control" id="branch">
+        <option value="0" label="Select District" selected="selected">Select Branch</option>
+        <optgroup id="district-optgroup-TRIVANDRUM" label="TRIVANDRUM">
+            <option value="PG" label="PMG">PMG</option>
+            <option value="EF" label="PMG">East Fort</option>
+            </optgroup>
+        <optgroup id="district-optgroup-ERNAKULAM" label="ERNAKULAM">
+            <option value="EP" label="Edappally">Edappally</option>
+            <option value="AL" label="Aluva">Aluva</option>
+            </optgroup>
+        <optgroup id="district-optgroup-PALAKKADU" label="PALAKKADU">
+            <option value="OP" label="Ottapalam">Ottapalam</option>
+            </optgroup>
+        <optgroup id="district-optgroup-KOLLAM" label="KOLLAM">
+            <option value="KK" label="Kottarakara">Kottarakara</option>
+             </optgroup>
+        <optgroup id="district-optgroup-TRISSUR" label="TRISSUR">
+            <option value="CK" label="Chalakkudy">Chalakkudy</option>
+            </optgroup>
+    </select><br>
+  <div>
+    <label class="u" style="color: #ffebcd"><h4><b>Account type:</b></h4></label><br>
+    <label class="u" style="color: #ffebcd"><h5><b>Savings</b></h5></label>
+    <input type="radio" name="acctype"><br>
+    <label class="u" style="color: #ffebcd"><h5><b>Current</b></h5></label>
+    <input type="radio" name="acctype"><br>
+  </div>
+  <div>
+    <label class="u" style="color: #ffebcd"><h4><b>Materials provided:</b></h4></label><br>
+    <label class="u" style="color: #ffebcd"><h5><b>Cheque Book</b></h5></label>
+    <input type="checkbox" name="mat"><br>
+    <label class="u" style="color: #ffebcd"><h5><b>Debit</b></h5></label>
+    <input type="checkbox" name="mat"><br>
+    <label class="u" style="color: #ffebcd"><h5><b>Credit</b></h5></label>
+    <input type="checkbox" name="mat"><br>
+  </div>
+    <div class="col-auto">
+        <input type="Submit" class="btn btn-primary mb-3" value="SUBMIT">
+    </div>
+</form>
+
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+
+
+{% endblock %}

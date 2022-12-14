@@ -1,0 +1,25 @@
+{% extends 'base1.html' %}
+{% block content %}
+    if request.method == 'POST':
+        name = request.POST['name']
+        dob = request.POST['dob']
+        age = request.POST['age']
+        gender = request.POST['gender']
+        number = request.POST['number']
+        mail = request.POST['mail']
+        branch = request.POST['branch']
+        acctype = request.POST['acctype']
+        mat = request.POST['mat']
+        formprint = {
+            "Name": name,
+            "Date of Birth": dob,
+            "Age": age,
+            "Gender": gender,
+            "Number": number,
+            "Email": mail,
+            "Branch": branch,
+            "Acc type": acctype,
+            "Materials Required": mat
+        }
+    return render(request, 'printform.html', {'formprint': formprint})
+{% endblock %}

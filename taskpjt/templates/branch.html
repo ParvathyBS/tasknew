@@ -1,0 +1,27 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block metadescription %}
+    {{br.description|truncatewords:155 }}
+{% endblock %}
+{% block title %}
+  {{br.branch_name}}-X-Bank
+{% endblock %}
+{% block content %}
+{% if category %}
+{% for branch in branches.object_list %}
+<div class="container">
+
+    <div>
+        <div>
+            <h1>{{branch.branch_name}}</h1>
+            <br>
+            <p>Description:</p>
+            <p>
+                {{branch.description}}
+            </p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}
